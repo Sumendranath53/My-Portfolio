@@ -14,17 +14,61 @@ export default function AntiGravityHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const textLayerRef = useRef<HTMLDivElement>(null);
   const subjectLayerRef = useRef<HTMLDivElement>(null);
+  const portraitRef = useRef<HTMLDivElement>(null);
   const uiLayerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      // Magnetic UI Elements Setup
+      const cleanups: (() => void)[] = [];
+
+      // 1. Entrance animation for SUMENDRA NATH (comes from below, staggered)
+      gsap.to(".sn-word", {
+        y: "0%",
+        opacity: 0.9,
+        duration: 1.4,
+        stagger: 0.35,
+        ease: "power4.out",
+        delay: 0.3,
+      });
+
+      // 2. Hover ripple effect on the portrait image
+      const portrait = portraitRef.current;
+      if (portrait) {
+        const displacementMap = document.querySelector("#displacement-map");
+        const turbulence = document.querySelector("#turbulence");
+
+        const onPortraitEnter = () => {
+          gsap.timeline()
+            .to(displacementMap, {
+              attr: { scale: 50 },
+              duration: 0.3,
+              ease: "power1.out",
+            })
+            .to(displacementMap, {
+              attr: { scale: 0 },
+              duration: 0.8,
+              ease: "power2.out",
+            });
+
+          gsap.fromTo(
+            turbulence,
+            { attr: { baseFrequency: 0.06 } },
+            { attr: { baseFrequency: 0.005 }, duration: 1.1, ease: "power1.inOut" }
+          );
+        };
+
+        portrait.addEventListener("mouseenter", onPortraitEnter);
+        cleanups.push(() => {
+          portrait.removeEventListener("mouseenter", onPortraitEnter);
+        });
+      }
+
+      // 3. Magnetic UI Elements Setup
       const magneticElements = document.querySelectorAll(".magnetic-btn");
 
       magneticElements.forEach((el) => {
         const htmlEl = el as HTMLElement;
 
-        // Use quickTo for highly performant, smoothed tracking
         const xTo = gsap.quickTo(htmlEl, "x", { duration: 0.4, ease: "power3" });
         const yTo = gsap.quickTo(htmlEl, "y", { duration: 0.4, ease: "power3" });
 
@@ -33,7 +77,6 @@ export default function AntiGravityHero() {
           const centerX = rect.left + rect.width / 2;
           const centerY = rect.top + rect.height / 2;
 
-          // Calculate distance from center (dampened for magnetic effect)
           const distanceX = (e.clientX - centerX) * 0.4;
           const distanceY = (e.clientY - centerY) * 0.4;
 
@@ -49,12 +92,15 @@ export default function AntiGravityHero() {
         htmlEl.addEventListener("mousemove", onMouseMove);
         htmlEl.addEventListener("mouseleave", onMouseLeave);
 
-        // Cleanup on unmount
-        return () => {
+        cleanups.push(() => {
           htmlEl.removeEventListener("mousemove", onMouseMove);
           htmlEl.removeEventListener("mouseleave", onMouseLeave);
-        };
+        });
       });
+
+      return () => {
+        cleanups.forEach((fn) => fn());
+      };
     },
     { scope: containerRef }
   );
@@ -70,8 +116,9 @@ export default function AntiGravityHero() {
           ref={textLayerRef}
           className="absolute z-10 w-full bottom-0 left-0 flex justify-center pointer-events-none"
         >
-          <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90">
-            SUMENDRA<br />NATH
+          <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90 overflow-hidden">
+            <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
+            <span className="inline-block translate-y-[100%] opacity-0 sn-word">NATH</span>
           </h1>
         </div>
 
@@ -80,12 +127,16 @@ export default function AntiGravityHero() {
           ref={subjectLayerRef}
           className="absolute z-20 w-full h-full flex justify-center items-end pointer-events-none"
         >
-          <div className="relative w-[720px] h-[102vh] max-w-full">
+          <div
+            ref={portraitRef}
+            className="relative w-[720px] h-[102vh] max-w-full pointer-events-auto cursor-pointer"
+          >
             <Image
-              src="/placeholder-portrait.png" // Replace with actual transparent portrait PNG
+              src="/placeholder-portrait.png"
               alt="Sumendra Nath Portrait"
               fill
               className="object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
+              style={{ filter: "url(#ripple-filter)" }}
               priority
             />
           </div>
@@ -147,6 +198,29 @@ export default function AntiGravityHero() {
             </div>
           </footer>
         </div>
+
+        {/* SVG Ripple Filter Definition */}
+        <svg className="hidden">
+          <defs>
+            <filter id="ripple-filter">
+              <feTurbulence
+                id="turbulence"
+                type="fractalNoise"
+                baseFrequency="0.05"
+                numOctaves="2"
+                result="noise"
+              />
+              <feDisplacementMap
+                id="displacement-map"
+                in="SourceGraphic"
+                in2="noise"
+                scale="0"
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+          </defs>
+        </svg>
       </div>
     </ReactLenis>
   );
