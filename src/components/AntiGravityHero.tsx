@@ -68,7 +68,7 @@ export default function AntiGravityHero() {
         {/* Layer 1: Background Text (Z: 10) */}
         <div
           ref={textLayerRef}
-          className="absolute z-10 w-full flex justify-center items-center pointer-events-none"
+          className="absolute z-10 w-full h-full flex justify-center items-end pb-32 pointer-events-none"
         >
           <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90">
             SUMENDRA<br />NATH
@@ -117,7 +117,7 @@ export default function AntiGravityHero() {
 
           {/* Left-Aligned Vertical Block */}
           <div className="flex flex-col justify-start pt-24 pointer-events-auto mix-blend-difference pl-4">
-            <h2 className="text-base md:text-xl font-bold uppercase leading-relaxed tracking-wider text-white/90">
+            <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
               Front End Developer<br />
               UI/UX Designer<br />
               Freelancer<br />
