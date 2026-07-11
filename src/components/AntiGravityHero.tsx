@@ -80,7 +80,7 @@ export default function AntiGravityHero() {
           ref={subjectLayerRef}
           className="absolute z-20 w-full h-full flex justify-center items-end pointer-events-none"
         >
-          <div className="relative w-[600px] h-[85vh] max-w-full">
+          <div className="relative w-[720px] h-[102vh] max-w-full">
             <Image
               src="/placeholder-portrait.png" // Replace with actual transparent portrait PNG
               alt="Sumendra Nath Portrait"
