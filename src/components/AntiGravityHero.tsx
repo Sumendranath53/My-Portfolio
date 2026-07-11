@@ -68,7 +68,7 @@ export default function AntiGravityHero() {
         {/* Layer 1: Background Text (Z: 10) */}
         <div
           ref={textLayerRef}
-          className="absolute z-10 w-full h-full flex justify-center items-end pb-32 pointer-events-none"
+          className="absolute z-10 w-full bottom-12 left-0 flex justify-center pointer-events-none"
         >
           <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90">
             SUMENDRA<br />NATH
