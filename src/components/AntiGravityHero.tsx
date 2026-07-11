@@ -21,8 +21,10 @@ export default function AntiGravityHero() {
     () => {
       const cleanups: (() => void)[] = [];
 
-      // 1. Entrance animation for SUMENDRA NATH (comes from below, staggered)
-      gsap.to(".sn-word", {
+      // 1. Entrance animation for SUMENDRA NATH and Roles Text (sequenced/staggered)
+      const tl = gsap.timeline();
+
+      tl.to(".sn-word", {
         y: "0%",
         opacity: 0.9,
         duration: 1.4,
@@ -30,6 +32,14 @@ export default function AntiGravityHero() {
         ease: "power4.out",
         delay: 0.3,
       });
+
+      tl.to(".role-line", {
+        y: "0%",
+        opacity: 1,
+        duration: 1.0,
+        stagger: 0.15,
+        ease: "power3.out",
+      }, "-=0.4");
 
       // 2. Hover ripple effect on the portrait image
       const portrait = portraitRef.current;
@@ -167,14 +177,14 @@ export default function AntiGravityHero() {
           </header>
 
           {/* Left-Aligned Vertical Block */}
-          <div className="absolute top-32 left-12 pointer-events-auto mix-blend-difference">
+          <div className="absolute top-32 left-12 pointer-events-auto mix-blend-difference overflow-hidden">
             <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
-              Front End Developer<br />
-              UI/UX Designer<br />
-              Freelancer<br />
-              Photo Editor<br />
-              Video Editor<br />
-              Photographer
+              <span className="inline-block translate-y-[100%] opacity-0 role-line">Front End Developer</span><br />
+              <span className="inline-block translate-y-[100%] opacity-0 role-line">UI/UX Designer</span><br />
+              <span className="inline-block translate-y-[100%] opacity-0 role-line">Freelancer</span><br />
+              <span className="inline-block translate-y-[100%] opacity-0 role-line">Photo Editor</span><br />
+              <span className="inline-block translate-y-[100%] opacity-0 role-line">Video Editor</span><br />
+              <span className="inline-block translate-y-[100%] opacity-0 role-line">Photographer</span>
             </h2>
           </div>
 
