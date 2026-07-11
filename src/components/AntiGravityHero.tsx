@@ -116,7 +116,7 @@ export default function AntiGravityHero() {
           </header>
 
           {/* Left-Aligned Vertical Block */}
-          <div className="flex flex-col justify-start pt-24 pointer-events-auto mix-blend-difference pl-4">
+          <div className="absolute top-32 left-12 pointer-events-auto mix-blend-difference">
             <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
               Front End Developer<br />
               UI/UX Designer<br />
