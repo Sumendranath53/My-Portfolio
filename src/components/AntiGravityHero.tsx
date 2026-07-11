@@ -18,57 +18,7 @@ export default function AntiGravityHero() {
 
   useGSAP(
     () => {
-      // 1. Continuous Idle Float (Anti-Gravity effect)
-      // Background Text floats smoothly
-      gsap.to(textLayerRef.current, {
-        y: 20,
-        duration: 4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-      });
-
-      // Foreground Subject floats at a different speed and phase
-      gsap.to(subjectLayerRef.current, {
-        y: -15,
-        duration: 5.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 0.5,
-      });
-
-      // 2. Scroll Parallax Lift
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top top",
-          end: "bottom top",
-          scrub: 1, // Smooth scrubbing
-        },
-      });
-
-      // Text moves slightly slower than scroll (parallax depth)
-      tl.to(
-        textLayerRef.current,
-        {
-          yPercent: 30, // Moves down relative to the scroll container
-          ease: "none",
-        },
-        0
-      );
-
-      // Subject moves slightly faster than scroll (pops out)
-      tl.to(
-        subjectLayerRef.current,
-        {
-          yPercent: -40, // Moves up relative to the scroll container
-          ease: "none",
-        },
-        0
-      );
-
-      // 3. Magnetic UI Elements Setup
+      // Magnetic UI Elements Setup
       const magneticElements = document.querySelectorAll(".magnetic-btn");
 
       magneticElements.forEach((el) => {
@@ -118,7 +68,7 @@ export default function AntiGravityHero() {
         {/* Layer 1: Background Text (Z: 10) */}
         <div
           ref={textLayerRef}
-          className="absolute z-10 w-full flex justify-center items-center pointer-events-none will-change-transform"
+          className="absolute z-10 w-full flex justify-center items-center pointer-events-none"
         >
           <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90">
             SUMENDRA<br />NATH
@@ -128,7 +78,7 @@ export default function AntiGravityHero() {
         {/* Layer 2: Subject (Z: 20) */}
         <div
           ref={subjectLayerRef}
-          className="absolute z-20 w-full h-full flex justify-center items-end pointer-events-none will-change-transform"
+          className="absolute z-20 w-full h-full flex justify-center items-end pointer-events-none"
         >
           <div className="relative w-[600px] h-[85vh] max-w-full">
             <Image
@@ -166,8 +116,8 @@ export default function AntiGravityHero() {
           </header>
 
           {/* Left-Aligned Vertical Block */}
-          <div className="flex flex-col justify-center h-full pointer-events-auto mix-blend-difference pl-4">
-            <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
+          <div className="flex flex-col justify-start pt-24 pointer-events-auto mix-blend-difference pl-4">
+            <h2 className="text-base md:text-xl font-bold uppercase leading-relaxed tracking-wider text-white/90">
               Front End Developer<br />
               UI/UX Designer<br />
               Freelancer<br />
@@ -198,7 +148,6 @@ export default function AntiGravityHero() {
           </footer>
         </div>
       </div>
-
     </ReactLenis>
   );
 }
