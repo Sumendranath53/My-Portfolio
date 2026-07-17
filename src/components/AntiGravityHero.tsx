@@ -33,6 +33,15 @@ export default function AntiGravityHero() {
         delay: 0.3,
       });
 
+      tl.to(".sn-word-mobile", {
+        y: "0%",
+        opacity: 0.9,
+        duration: 1.4,
+        stagger: 0.35,
+        ease: "power4.out",
+        delay: 0.3,
+      }, "<");
+
       tl.to(".role-line-desktop", {
         x: "0%",
         opacity: 1,
@@ -129,20 +138,30 @@ export default function AntiGravityHero() {
         ref={containerRef}
         className="relative w-full h-screen overflow-hidden bg-neutral-950 text-white flex items-center justify-center font-sans"
       >
-        {/* Layer 1: Background Text (Z: 10) */}
+        {/* Layer 1 (Desktop): Background Text (Z: 10) */}
         <div
           ref={textLayerRef}
-          className="absolute z-10 w-full top-[16%] md:top-auto md:bottom-0 left-0 flex justify-center pointer-events-none"
+          className="hidden md:flex absolute z-10 w-full bottom-0 left-0 justify-center pointer-events-none"
+        >
+          <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90 overflow-hidden">
+            <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
+            <span className="inline-block translate-y-[100%] opacity-0 sn-word">NATH</span>
+          </h1>
+        </div>
+
+        {/* Layer 1 (Mobile): Background Text (Z: 10) */}
+        <div
+          className="flex md:hidden absolute z-10 w-full top-[13%] left-0 justify-center pointer-events-none"
         >
           <h1
-            className="text-[20.5vw] md:text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-[0.95] overflow-hidden"
+            className="text-[22vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-[0.95] overflow-hidden"
             style={{
               fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
               fontStyle: 'italic',
             }}
           >
-            <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
-            <span className="inline-block translate-y-[100%] opacity-0 sn-word">NATH</span>
+            <span className="inline-block translate-y-[100%] opacity-0 sn-word-mobile">SUMENDRA</span><br />
+            <span className="inline-block translate-y-[100%] opacity-0 sn-word-mobile">NATH</span>
           </h1>
         </div>
 
@@ -160,7 +179,7 @@ export default function AntiGravityHero() {
               alt="Sumendra Nath Portrait"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover md:object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] filter-none md:[filter:url(#ripple-filter)]"
+              className="object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] filter-none md:[filter:url(#ripple-filter)]"
               priority
             />
           </div>

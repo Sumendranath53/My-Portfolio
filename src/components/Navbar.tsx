@@ -154,10 +154,11 @@ export default function Navbar() {
           <a
             href="#hero"
             onClick={(e) => handleLinkClick(e, "#hero")}
-            className="flex items-center gap-6 text-xs font-bold tracking-[0.2em] uppercase text-white mix-blend-difference"
+            className="flex items-center gap-8 md:gap-4 text-xs font-bold tracking-[0.2em] uppercase text-white mix-blend-difference"
           >
             <span className="text-white">SN</span>
-            <span className="text-white hover:text-white transition-colors">Sumendra Nath</span>
+            <span className="hidden md:inline text-neutral-400 hover:text-white transition-colors">Sumendra Nath</span>
+            <span className="inline md:hidden text-white font-bold tracking-[0.2em] uppercase">SUMENDRA NATH</span>
           </a>
 
           {/* Desktop Nav Items */}
