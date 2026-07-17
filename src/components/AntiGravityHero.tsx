@@ -154,9 +154,9 @@ export default function AntiGravityHero() {
           className="flex md:hidden absolute z-10 w-full top-[13%] left-0 justify-center pointer-events-none"
         >
           <h1
-            className="text-[22vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-[0.95] overflow-hidden"
+            className="text-[28vw] leading-[0.7] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-[0.95] overflow-hidden"
             style={{
-              fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
+              fontFamily: 'Morganite, Impact, sans-serif',
               fontStyle: 'italic',
             }}
           >
@@ -204,7 +204,7 @@ export default function AntiGravityHero() {
 
           {/* Mobile Roles Overlay (Z: 30 over the black suit) */}
           <div className="absolute bottom-[18%] left-4 right-4 text-center md:hidden flex flex-col items-center pointer-events-none">
-            <p className="text-[3.9vw] xs:text-[14px] font-black uppercase leading-[1.3] tracking-[0.05em] text-white pointer-events-auto">
+            <p className="text-[3.9vw] xs:text-[14px] font-black uppercase leading-[1.1] tracking-[0.05em] text-white pointer-events-auto">
               <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Machine Learning Researcher</span><br />
               <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Patent-Backed AI Innovator</span><br />
               <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Web Application Engineer</span><br />
