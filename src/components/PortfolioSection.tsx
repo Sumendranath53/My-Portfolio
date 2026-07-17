@@ -182,6 +182,7 @@ export default function PortfolioSection() {
                   src={project.img} 
                   alt={project.title} 
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out" 
                 />
               </div>
@@ -210,6 +211,7 @@ export default function PortfolioSection() {
                 src={src} 
                 alt={`Gallery image ${i + 1}`} 
                 fill
+                sizes="320px"
                 className="object-cover"
               />
             </div>

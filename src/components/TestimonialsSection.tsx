@@ -60,14 +60,14 @@ export default function TestimonialsSection() {
               <Quote className="absolute top-8 right-8 text-neutral-800" size={64} />
               <div className="flex items-center gap-4 mb-6 relative z-10">
                 <div className="w-16 h-16 relative rounded-full overflow-hidden border-2 border-orange-500">
-                  <Image src={test.image} alt={test.name} fill className="object-cover" />
+                  <Image src={test.image} alt={test.name} fill sizes="64px" className="object-cover" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold">{test.name}</h4>
                 </div>
               </div>
               <p className="text-neutral-300 leading-relaxed italic relative z-10">
-                "{test.text}"
+                &ldquo;{test.text}&rdquo;
               </p>
             </div>
           ))}

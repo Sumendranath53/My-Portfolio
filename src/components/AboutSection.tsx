@@ -66,7 +66,7 @@ export default function AboutSection() {
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
               <div className="w-48 h-48 relative rounded-2xl overflow-hidden shrink-0 border border-neutral-700">
                 {/* Fallback image if testimonial-2.jpg is not found */}
-                <Image src="/resume-assets/testimonial-2.jpg" alt="Sumendra Nath Singh" fill className="object-cover" />
+                <Image src="/resume-assets/testimonial-2.jpg" alt="Sumendra Nath Singh" fill sizes="192px" className="object-cover" />
               </div>
               <div className="space-y-3 text-sm">
                 <p><span className="text-orange-500 font-bold">Name:</span> Sumendra Nath Singh</p>
@@ -107,16 +107,16 @@ export default function AboutSection() {
               <h2 className="text-3xl font-bold tracking-tight text-white mb-6 uppercase border-b-2 border-orange-500 inline-block pb-2">Education</h2>
               <div className="space-y-6">
                 <div>
-                  <h4 className="font-bold text-orange-500">BACHELOR'S OF TECHNOLOGY-COMPUTER SCIENCE ENGG. (2016-2020)</h4>
+                  <h4 className="font-bold text-orange-500">BACHELOR&apos;S OF TECHNOLOGY-COMPUTER SCIENCE ENGG. (2016-2020)</h4>
                   <p className="text-neutral-400">Hindustan Institute of Technology & Management, Agra / RBSEngg. Technical Campus, Agra</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-orange-500">INTERMEDIATE SCIENCE & COMPUTER (2016)</h4>
-                  <p className="text-neutral-400">St.George's College, Agra</p>
+                  <p className="text-neutral-400">St.George&apos;s College, Agra</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-orange-500">HIGH SCHOOL SCIENCE (2014)</h4>
-                  <p className="text-neutral-400">St.George's College, Agra</p>
+                  <p className="text-neutral-400">St.George&apos;s College, Agra</p>
                 </div>
               </div>
             </div>

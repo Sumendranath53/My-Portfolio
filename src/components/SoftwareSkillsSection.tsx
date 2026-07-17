@@ -9,6 +9,7 @@ import { FileText, MonitorPlay, Code, Camera, Video, PenTool, Palette, Volume2, 
 const GithubIcon = ({ size = 24 }: { size?: number }) => (
   <svg
     role="img"
+    aria-label="GitHub"
     viewBox="0 0 24 24"
     width={size}
     height={size}

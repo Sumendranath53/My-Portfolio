@@ -76,7 +76,7 @@ export default function HighlightsSection() {
           {highlights.map((item, idx) => (
             <div key={idx} className="highlight-card bg-neutral-900 border border-neutral-800 rounded-2xl overflow-hidden hover:border-orange-500 transition-colors group">
               <div className="relative h-64 w-full overflow-hidden">
-                <Image src={item.image} alt={item.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-110 transition-transform duration-700" />
                 <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold uppercase px-3 py-1 rounded">
                   {item.category}
                 </div>
@@ -89,7 +89,7 @@ export default function HighlightsSection() {
                 <div className="flex items-center justify-between border-t border-neutral-800 pt-4 mt-4">
                   <div className="flex items-center gap-3">
                     <div className="w-8 h-8 relative rounded-full overflow-hidden">
-                      <Image src={item.authorImage} alt={item.authorName} fill className="object-cover" />
+                      <Image src={item.authorImage} alt={item.authorName} fill sizes="32px" className="object-cover" />
                     </div>
                     <span className="text-sm text-neutral-300 hover:text-orange-500 cursor-pointer transition-colors">{item.authorName}</span>
                   </div>

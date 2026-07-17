@@ -34,7 +34,7 @@ export default function AntiGravityHero() {
       });
 
       tl.to(".role-line", {
-        y: "0%",
+        x: "0%",
         opacity: 1,
         duration: 1.0,
         stagger: 0.15,
@@ -121,10 +121,10 @@ export default function AntiGravityHero() {
         ref={containerRef}
         className="relative w-full h-screen overflow-hidden bg-neutral-950 text-white flex items-center justify-center font-sans"
       >
-        {/* Layer 1: Background Text (Z: 10) */}
+        {/* Layer 1: Desktop Background Text (Z: 10) */}
         <div
           ref={textLayerRef}
-          className="absolute z-10 w-full bottom-0 left-0 flex justify-center pointer-events-none"
+          className="hidden md:flex absolute z-10 w-full bottom-0 left-0 justify-center pointer-events-none"
         >
           <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90 overflow-hidden">
             <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
@@ -139,14 +139,14 @@ export default function AntiGravityHero() {
         >
           <div
             ref={portraitRef}
-            className="relative w-[720px] h-[102vh] max-w-full pointer-events-auto cursor-pointer"
+            className="relative w-[720px] h-[100vh] md:h-[75vh] max-w-full pointer-events-auto cursor-pointer"
           >
             <Image
               src="/placeholder-portrait.png"
               alt="Sumendra Nath Portrait"
               fill
-              className="object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)]"
-              style={{ filter: "url(#ripple-filter)" }}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover md:object-contain object-bottom drop-shadow-[0_20px_50px_rgba(0,0,0,0.7)] filter-none md:[filter:url(#ripple-filter)]"
               priority
             />
           </div>
@@ -157,56 +157,33 @@ export default function AntiGravityHero() {
           ref={uiLayerRef}
           className="absolute inset-0 z-30 flex flex-col justify-between p-8 pointer-events-none"
         >
-          {/* Top Navigation */}
-          <header className="flex justify-between items-start pointer-events-auto w-full mix-blend-difference">
-            <div className="flex items-center gap-4 text-xs font-bold tracking-[0.2em] uppercase">
-              <span className="text-white">SN</span>
-              <span className="text-neutral-400">Sumendra Nath</span>
-            </div>
-            
-            <nav className="hidden md:flex gap-8 text-[11px] font-bold tracking-[0.2em] uppercase text-neutral-400">
-              <a href="#research" className="hover:text-white transition-colors magnetic-btn p-4 -m-4 inline-block">Research</a>
-              <a href="#about" className="hover:text-white transition-colors magnetic-btn p-4 -m-4 inline-block">About</a>
-              <a href="#skills" className="hover:text-white transition-colors magnetic-btn p-4 -m-4 inline-block">Skills</a>
-              <a href="#portfolio" className="hover:text-white transition-colors magnetic-btn p-4 -m-4 inline-block">Portfolio</a>
-            </nav>
-            
-            <div className="hidden lg:block w-72 text-right text-xs text-neutral-400 leading-relaxed font-medium">
-              Building things that make an impact. Coder, founder, researcher, and avid photographer capturing the world.
-            </div>
-          </header>
 
-          {/* Left-Aligned Vertical Block */}
-          <div className="absolute top-32 left-12 pointer-events-auto mix-blend-difference overflow-hidden">
-            <h2 className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
-              <span className="inline-block translate-y-[100%] opacity-0 role-line">Front End Developer</span><br />
-              <span className="inline-block translate-y-[100%] opacity-0 role-line">UI/UX Designer</span><br />
-              <span className="inline-block translate-y-[100%] opacity-0 role-line">Freelancer</span><br />
-              <span className="inline-block translate-y-[100%] opacity-0 role-line">Photo Editor</span><br />
-              <span className="inline-block translate-y-[100%] opacity-0 role-line">Video Editor</span><br />
-              <span className="inline-block translate-y-[100%] opacity-0 role-line">Photographer</span>
-            </h2>
+          {/* Desktop Left-Aligned Vertical Block */}
+          <div className="hidden md:block absolute top-32 left-12 pointer-events-auto mix-blend-difference">
+            <p className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Machine Learning Researcher</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Patent-Backed AI Innovator</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Web Application Engineer</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Visual Media Specialist</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Digital Creator</span>
+            </p>
           </div>
 
-          {/* Bottom Footer Elements */}
-          <footer className="flex justify-between items-end pointer-events-auto w-full pb-4 mix-blend-difference">
-            <div className="flex items-center gap-6">
-              <div className="h-[1px] w-12 bg-neutral-600"></div>
-              <div className="text-[9px] uppercase tracking-[0.3em] text-neutral-400 font-bold leading-relaxed">
-                Scroll to enter<br />
-                Scroll to enter
-              </div>
-            </div>
-            
-            <div className="flex gap-4">
-              <button className="magnetic-btn bg-white text-black px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-neutral-200 transition-colors shadow-lg">
-                <span className="text-[#FF4500]">✦</span> Premium
-              </button>
-              <button className="magnetic-btn border border-neutral-600 bg-black/40 backdrop-blur-md text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-white/10 transition-colors shadow-lg">
-                Commercial licence
-              </button>
-            </div>
-          </footer>
+          {/* Mobile Combined Block (Stacked vertically, Z: 30 above image) */}
+          <div className="absolute bottom-[12vh] left-4 right-4 text-center md:hidden flex flex-col items-center gap-2 pointer-events-none">
+            <p className="text-lg md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white pointer-events-auto mix-blend-difference">
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Machine Learning Researcher</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Patent-Backed AI Innovator</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Web Application Engineer</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Visual Media Specialist</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line">Digital Creator</span>
+            </p>
+            <h1 className="text-[14vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter drop-shadow-2xl opacity-90 overflow-hidden">
+              <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
+              <span className="inline-block translate-y-[100%] opacity-0 sn-word">NATH</span>
+            </h1>
+          </div>
+
         </div>
 
         {/* SVG Ripple Filter Definition */}

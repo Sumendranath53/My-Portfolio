@@ -59,7 +59,7 @@ export default function ApproachSection() {
             </div>
             <h3 className="text-2xl font-bold text-neutral-950 uppercase tracking-tight">The Approach</h3>
             <p className="text-neutral-600 leading-relaxed text-justify">
-              I start with understanding the core problem, looking at projects and teaching methodologies from the user's and students' perspective first. From there, I help define the direction and bring ideas to life—not just to make things look better, but to make them work better, scale securely, and deliver actionable insights.
+              I start with understanding the core problem, looking at projects and teaching methodologies from the user&apos;s and students&apos; perspective first. From there, I help define the direction and bring ideas to life—not just to make things look better, but to make them work better, scale securely, and deliver actionable insights.
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export default function ApproachSection() {
             </div>
             <h3 className="text-2xl font-bold text-neutral-950 uppercase tracking-tight">The Philosophy</h3>
             <p className="text-neutral-600 leading-relaxed text-justify">
-              I don't follow trends blindly; I use them when they serve the purpose. My goal is always to create something distinctive, something people actually remember. Every project, no matter the size, deserves the same level of care—thoughtful, well-crafted, and built to last.
+              I don&apos;t follow trends blindly; I use them when they serve the purpose. My goal is always to create something distinctive, something people actually remember. Every project, no matter the size, deserves the same level of care—thoughtful, well-crafted, and built to last.
             </p>
           </div>
 

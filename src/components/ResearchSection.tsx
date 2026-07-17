@@ -141,7 +141,7 @@ export default function ResearchSection() {
                   </p>
                   {conf.desc && (
                     <p className="text-sm text-neutral-400 leading-relaxed border-l-2 border-neutral-700 pl-3 italic">
-                      "{conf.desc}"
+                      &ldquo;{conf.desc}&rdquo;
                     </p>
                   )}
                 </div>
