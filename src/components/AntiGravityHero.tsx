@@ -33,13 +33,21 @@ export default function AntiGravityHero() {
         delay: 0.3,
       });
 
-      tl.to(".role-line", {
+      tl.to(".role-line-desktop", {
         x: "0%",
         opacity: 1,
         duration: 1.0,
         stagger: 0.15,
         ease: "power3.out",
       }, "-=0.4");
+
+      tl.to(".role-line-mobile", {
+        x: "0%",
+        opacity: 1,
+        duration: 1.0,
+        stagger: 0.15,
+        ease: "power3.out",
+      }, "<");
 
       // 2. Hover ripple effect on the portrait image
       const portrait = portraitRef.current;
@@ -121,12 +129,18 @@ export default function AntiGravityHero() {
         ref={containerRef}
         className="relative w-full h-screen overflow-hidden bg-neutral-950 text-white flex items-center justify-center font-sans"
       >
-        {/* Layer 1: Desktop Background Text (Z: 10) */}
+        {/* Layer 1: Background Text (Z: 10) */}
         <div
           ref={textLayerRef}
-          className="hidden md:flex absolute z-10 w-full bottom-0 left-0 justify-center pointer-events-none"
+          className="absolute z-10 w-full top-[16%] md:top-auto md:bottom-0 left-0 flex justify-center pointer-events-none"
         >
-          <h1 className="text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-90 overflow-hidden">
+          <h1
+            className="text-[20.5vw] md:text-[18vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter text-center drop-shadow-2xl opacity-[0.95] overflow-hidden"
+            style={{
+              fontFamily: 'Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif',
+              fontStyle: 'italic',
+            }}
+          >
             <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
             <span className="inline-block translate-y-[100%] opacity-0 sn-word">NATH</span>
           </h1>
@@ -161,27 +175,23 @@ export default function AntiGravityHero() {
           {/* Desktop Left-Aligned Vertical Block */}
           <div className="hidden md:block absolute top-32 left-12 pointer-events-auto mix-blend-difference">
             <p className="text-3xl md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white">
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Machine Learning Researcher</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Patent-Backed AI Innovator</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Web Application Engineer</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Visual Media Specialist</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Digital Creator</span>
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-desktop">Machine Learning Researcher</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-desktop">Patent-Backed AI Innovator</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-desktop">Web Application Engineer</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-desktop">Visual Media Specialist</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-desktop">Digital Creator</span>
             </p>
           </div>
 
-          {/* Mobile Combined Block (Stacked vertically, Z: 30 above image) */}
-          <div className="absolute bottom-[12vh] left-4 right-4 text-center md:hidden flex flex-col items-center gap-2 pointer-events-none">
-            <p className="text-lg md:text-5xl font-black uppercase leading-[0.9] tracking-tighter text-white pointer-events-auto mix-blend-difference">
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Machine Learning Researcher</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Patent-Backed AI Innovator</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Web Application Engineer</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Visual Media Specialist</span><br />
-              <span className="inline-block translate-x-[50px] opacity-0 role-line">Digital Creator</span>
+          {/* Mobile Roles Overlay (Z: 30 over the black suit) */}
+          <div className="absolute bottom-[18%] left-4 right-4 text-center md:hidden flex flex-col items-center pointer-events-none">
+            <p className="text-[3.9vw] xs:text-[14px] font-black uppercase leading-[1.3] tracking-[0.05em] text-white pointer-events-auto">
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Machine Learning Researcher</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Patent-Backed AI Innovator</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Web Application Engineer</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Visual Media Specialist</span><br />
+              <span className="inline-block translate-x-[50px] opacity-0 role-line-mobile">Digital Creator</span>
             </p>
-            <h1 className="text-[14vw] leading-[0.8] font-black text-[#FF4500] uppercase tracking-tighter drop-shadow-2xl opacity-90 overflow-hidden">
-              <span className="inline-block translate-y-[100%] opacity-0 sn-word">SUMENDRA</span><br />
-              <span className="inline-block translate-y-[100%] opacity-0 sn-word">NATH</span>
-            </h1>
           </div>
 
         </div>

@@ -145,8 +145,8 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
           isScrolled
-            ? "py-4 bg-neutral-950/80 backdrop-blur-md border-b border-white/5 shadow-lg"
-            : "py-6 bg-transparent"
+            ? "py-4 bg-neutral-950/90 backdrop-blur-md border-b border-white/5 shadow-lg"
+            : "py-5 bg-neutral-950/85 backdrop-blur-md md:py-6 md:bg-transparent md:backdrop-blur-none"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
@@ -154,10 +154,10 @@ export default function Navbar() {
           <a
             href="#hero"
             onClick={(e) => handleLinkClick(e, "#hero")}
-            className="flex items-center gap-4 text-xs font-bold tracking-[0.2em] uppercase text-white mix-blend-difference"
+            className="flex items-center gap-6 text-xs font-bold tracking-[0.2em] uppercase text-white mix-blend-difference"
           >
             <span className="text-white">SN</span>
-            <span className="text-neutral-400 hover:text-white transition-colors">Sumendra Nath</span>
+            <span className="text-white hover:text-white transition-colors">Sumendra Nath</span>
           </a>
 
           {/* Desktop Nav Items */}
